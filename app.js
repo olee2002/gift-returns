@@ -6,6 +6,11 @@ const app = express()
 
 app.set('view engine', 'hbs')
 
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
+
 // Mongo connection set-up
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb://localhost/gift-returns', {
@@ -13,7 +18,7 @@ mongoose.connect('mongodb://localhost/gift-returns', {
 })
 
 mongoose.connection.once('open', () => {
-  console.log("Mongoose has connected to MongoDB!")
+  console.log('Mongoose has connected to MongoDB!')
 })
 
 mongoose.connection.on('error', (error) => {

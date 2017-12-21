@@ -16,4 +16,27 @@ router.get('/', (request, response) => {
     })
 })
 
+router.get('/new', (request, response) => {
+  const userId = request.params.userId
+
+  response.render('stores/new', {
+    userId
+  })
+})
+
+router.post('/', (request, response) => {
+  const userId = request.params.userId
+  const newStore = request.body
+
+  User.findById(userId)
+    .then((user) => {
+      user.stores.push(newStore)
+      return user.save()
+    })
+    .then(() => {
+      response.redirect(`/users/${userId}/stores`)
+    })
+
+})
+
 module.exports = router
