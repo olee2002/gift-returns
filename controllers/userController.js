@@ -9,6 +9,23 @@ router.get('/', (request, response) => {
         users
       })
     })
+    .catch((error) => {
+      console.log(error)
+    })
+})
+
+router.get('/new', (request, response) => {
+  response.render('users/new')
+})
+
+router.post('/', (request, response) => {
+  User.create(request.body)
+    .then(() => {
+      response.redirect('/users')
+    })
+    .catch((error) => {
+      console.log(error)
+    })
 })
 
 router.get('/:userId', (request, response) => {
@@ -18,6 +35,9 @@ router.get('/:userId', (request, response) => {
       response.render('users/show', {
         user
       })
+    })
+    .catch((error) => {
+      console.log(error)
     })
 })
 
