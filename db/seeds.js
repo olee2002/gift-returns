@@ -1,5 +1,6 @@
 const User = require('./models/User')
 const Store = require('./models/Store')
+const Gift = require('./models/Gift')
 const mongoose = require('mongoose')
 
 // connect to database
@@ -20,64 +21,72 @@ mongoose.connection.on('error', (error) => {
 })
 
 // Delete all users, then add some fake ones
-User.remove({})
-  .then(() => {
-    return User.create({
-      username: 'bob_loblaw',
-      email: 'bob@loblawlawblog.com',
-      firstName: 'Robert',
-      lastName: 'Loblaw',
-      photoUrl: 'https://enterprisectr.org/wp-content/uploads/2014/09/bobloblaw.jpg'
-    })
+User.remove({}).then(() => {
+  const bobLoblaw = new User({
+    username: 'bob_loblaw',
+    email: 'bob@loblawlawblog.com',
+    firstName: 'Robert',
+    lastName: 'Loblaw',
+    photoUrl: 'https://enterprisectr.org/wp-content/uploads/2014/09/bobloblaw.jpg'
   })
-  .then((bobLoblaw) => {
-    const target = new Store({
-      name: 'Target',
-      address: 'over there'
-    })
 
-    const sharperImage = new Store({
-      name: 'Sharper Image',
-      address: 'the mall'
-    })
-
-    bobLoblaw.stores.push(target, sharperImage)
-
-    return bobLoblaw.save()
+  const target = new Store({
+    name: 'Target',
+    address: 'over there'
   })
-  .then(() => {
-    return User.create({
-      username: 'GOB',
-      email: 'ceo@bluthcompany.com',
-      firstName: 'George',
-      lastName: 'Bluth',
-      photoUrl: 'http://78.media.tumblr.com/tumblr_l97od9Zc1M1qz59z1o1_400.jpg'
-    })
+  const toaster = new Gift({
+    title: 'Toaster',
+    description: 'why?',
+    price: 25.41,
+    cameFrom: 'Lucille'
   })
-  .then((gob) => {
-    const magicStore = new Store({
-      name: 'The Magic Store',
-      address: 'over there'
-    })
+  target.giftsToReturn.push(toaster)
 
-    const petSmart = new Store({
-      name: 'PetSmart',
-      address: '123 Sesame St'
-    })
-
-    gob.stores.push(magicStore, petSmart)
-
-    return gob.save()
+  const sharperImage = new Store({
+    name: 'Sharper Image',
+    address: 'the mall'
   })
-  .catch((error) => {
-    console.log('!!!!! ERROR SAVING SEEDED DATA !!!!!')
-    console.log(error)
+  const massageChair = new Gift({
+    title: 'Massage Chair',
+    description: 'already have too many',
+    price: 1521.67,
+    cameFrom: 'Oscar'
   })
-  .then(() => {
-    mongoose.connection.close()
-    console.log(`
+  sharperImage.giftsToReturn.push(massageChair)
+
+  bobLoblaw.stores.push(target, sharperImage)
+
+  return bobLoblaw.save()
+}).then(() => {
+  return User.create({
+    username: 'GOB',
+    email: 'ceo@bluthcompany.com',
+    firstName: 'George',
+    lastName: 'Bluth',
+    photoUrl: 'http://78.media.tumblr.com/tumblr_l97od9Zc1M1qz59z1o1_400.jpg'
+  })
+}).then((gob) => {
+  const magicStore = new Store({
+    name: 'The Magic Store',
+    address: 'over there'
+  })
+
+  const petSmart = new Store({
+    name: 'PetSmart',
+    address: '123 Sesame St'
+  })
+
+  gob.stores.push(magicStore, petSmart)
+
+  return gob.save()
+}).catch((error) => {
+  console.log('!!!!! ERROR SAVING SEEDED DATA !!!!!')
+  console.log(error)
+}).then(() => {
+  mongoose.connection.close()
+  console.log(`
       Finished seeding database...
       
       Disconnected from MongoDB
     `)
-  })
+})

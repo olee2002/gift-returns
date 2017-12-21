@@ -3,6 +3,27 @@ const Schema = mongoose.Schema
 
 mongoose.Promise = global.Promise
 
+const GiftSchema = new Schema(
+  {
+    title: {
+      type: String,
+      required: [true, 'Gift title is required!']
+    },
+    description: {
+      type: String
+    },
+    price: {
+      type: Number
+    },
+    cameFrom: {
+      type: String
+    }
+  },
+  {
+    timestamps: {}
+  }
+)
+
 const StoreSchema = new Schema(
   {
     name: {
@@ -11,7 +32,8 @@ const StoreSchema = new Schema(
     },
     address: {
       type: String
-    }
+    },
+    giftsToReturn: [GiftSchema]
   },
   {
     timestamps: {}
@@ -45,5 +67,6 @@ const UserSchema = new Schema(
 
 module.exports = {
   UserSchema,
-  StoreSchema
+  StoreSchema,
+  GiftSchema
 }
