@@ -7,14 +7,15 @@ router.get('/new', (request, response) => {
   const userId = request.params.userId
   const storeId = request.params.storeId
 
-  User.findById(userId).then((user) => {
-    const store = user.stores.id(storeId)
+  User.findById(userId)
+    .then((user) => {
+      const store = user.stores.id(storeId)
 
-    response.render('gifts/new', {
-      userId,
-      store
+      response.render('gifts/new', {
+        userId,
+        store
+      })
     })
-  })
 })
 
 router.post('/', (request, response) => {
@@ -22,16 +23,17 @@ router.post('/', (request, response) => {
   const storeId = request.params.storeId
 
   const newGift = request.body
-  console.log(newGift)
 
-  User.findById(userId).then((user) => {
-    const store = user.stores.id(storeId)
-    store.giftsToReturn.push(newGift)
+  User.findById(userId)
+    .then((user) => {
+      const store = user.stores.id(storeId)
+      store.giftsToReturn.push(newGift)
 
-    return user.save()
-  }).then(() => {
-    response.redirect(`/users/${userId}/stores/${storeId}`)
-  })
+      return user.save()
+    })
+    .then(() => {
+      response.redirect(`/users/${userId}/stores/${storeId}`)
+    })
 })
 
 router.get('/:giftId', (request, response) => {
@@ -39,18 +41,20 @@ router.get('/:giftId', (request, response) => {
   const storeId = request.params.storeId
   const giftId = request.params.giftId
 
-  User.findById(userId).then((user) => {
-    const store = user.stores.id(storeId)
-    const gift = store.giftsToReturn.id(giftId)
+  User.findById(userId)
+    .then((user) => {
+      const store = user.stores.id(storeId)
+      const gift = store.giftsToReturn.id(giftId)
 
-    response.render('gifts/show', {
-      userId,
-      store,
-      gift
+      response.render('gifts/show', {
+        userId,
+        store,
+        gift
+      })
     })
-  }).catch((error) => {
-    console.log(error)
-  })
+    .catch((error) => {
+      console.log(error)
+    })
 })
 
 router.get('/:giftId/delete', (request, response) => {
@@ -58,18 +62,19 @@ router.get('/:giftId/delete', (request, response) => {
   const storeId = request.params.storeId
   const giftId = request.params.giftId
 
-  User.findById(userId).then((user) => {
-    const store = user.stores.id(storeId)
-    store.giftsToReturn.id(giftId).remove()
+  User.findById(userId)
+    .then((user) => {
+      const store = user.stores.id(storeId)
+      store.giftsToReturn.id(giftId).remove()
 
-    return user.save()
-  })
-  .then(() => {
-    response.redirect(`/users/${userId}/stores/${storeId}`)
-  })
-  .catch((error) => {
-    console.log(error)
-  })
+      return user.save()
+    })
+    .then(() => {
+      response.redirect(`/users/${userId}/stores/${storeId}`)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
 })
 
 module.exports = router
