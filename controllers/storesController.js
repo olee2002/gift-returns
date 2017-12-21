@@ -39,6 +39,9 @@ router.get('/:storeId', (request, response) => {
         store
       })
     })
+    .catch((error) => {
+      console.log(error)
+    })
 })
 
 router.post('/', (request, response) => {

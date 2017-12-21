@@ -7,5 +7,16 @@
         Location: {{store.address}}
     </div>
 
+    <div>
+        <h3>Gifts To Return:</h3>
+        {{#each store.giftsToReturn}}
+            <div>
+                <a href="/users/{{../userId}}/stores/{{../store._id}}/gifts/{{this._id}}">
+                    {{this.title}}
+                </a>
+            </div>
+        {{/each}}
+    </div>
+
     <a href="/users/{{userId}}/stores/{{store._id}}/delete">Delete</a>
 </div>
