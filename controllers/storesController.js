@@ -27,6 +27,20 @@ router.get('/new', (request, response) => {
   })
 })
 
+router.get('/:storeId', (request, response) => {
+  const userId = request.params.userId
+  const storeId = request.params.storeId
+
+  User.findById(userId)
+    .then((user) => {
+      const store = user.stores.id(storeId)
+      response.render('stores/show', {
+        userId,
+        store
+      })
+    })
+})
+
 router.post('/', (request, response) => {
   const userId = request.params.userId
   const newStore = request.body
