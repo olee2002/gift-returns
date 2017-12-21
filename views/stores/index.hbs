@@ -1,0 +1,14 @@
+<div>
+    <div>
+        <a href="/users/{{userId}}">Back to User Profile</a>
+    </div>
+    <h1>{{userFullName}}'s Stores to Visit:</h1>
+    <div>
+        {{#each stores}}
+            <div>
+                <h3>{{this.name}}</h3>
+                <div>Location: {{this.address}}</div>
+            </div>
+        {{/each}}
+    </div>
+</div>

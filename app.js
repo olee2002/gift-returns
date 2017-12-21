@@ -28,6 +28,9 @@ mongoose.connection.on('error', (error) => {
 const userController = require('./controllers/userController')
 app.use('/users', userController)
 
+const storesController = require('./controllers/storesController')
+app.use('/users/:userId/stores', storesController)
+
 // Starting server
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
