@@ -39,4 +39,18 @@ router.post('/', (request, response) => {
 
 })
 
+router.get('/:storeId/delete', (request, response) => {
+  const userId = request.params.userId
+  const storeId = request.params.storeId
+
+  User.findById(userId)
+    .then((user) => {
+      user.stores.id(storeId).remove()
+      return user.save()
+    })
+    .then(() => {
+      response.redirect(`/users/${userId}/stores/`)
+    })
+})
+
 module.exports = router
