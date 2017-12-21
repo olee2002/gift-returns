@@ -8,6 +8,13 @@
         <img src="{{user.photoUrl}}" alt="{{user.username}}'s profile photo">
     </div>
     <div>
+        <div>
+            <a href="/users/{{user._id}}/edit">Update User Profile</a>
+        </div>
+        <div>
+            <a href="/users/{{user._id}}/delete">Delete User Profile</a>
+        </div>
+
         <div>Username: {{user.username}}</div>
         <div>Email: {{user.email}}</div>
     </div>

@@ -41,4 +41,40 @@ router.get('/:userId', (request, response) => {
     })
 })
 
+router.get('/:userId/edit', (request, response) => {
+  const userId = request.params.userId
+
+  User.findById(userId)
+    .then((user) => {
+      response.render('users/edit', {
+        user
+      })
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+})
+
+router.get('/:userId/delete', (request, response) => {
+  const userId = request.params.userId
+
+  User.findByIdAndRemove(userId)
+    .then(() => {
+      response.redirect('/users')
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+})
+
+router.put('/:userId', (request, response) => {
+  const userId = request.params.userId
+  const updatedUserInfo = request.body
+
+  User.findByIdAndUpdate(userId, updatedUserInfo, {new: true})
+    .then(() => {
+      response.redirect(`/users/${userId}`)
+    })
+})
+
 module.exports = router

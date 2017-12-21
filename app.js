@@ -6,10 +6,15 @@ const app = express()
 
 app.set('view engine', 'hbs')
 
+app.use(express.static('public'))
+
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({
   extended: true
 }))
+
+const methodOverride = require('method-override')
+app.use(methodOverride('_method'))
 
 // Mongo connection set-up
 mongoose.Promise = global.Promise
