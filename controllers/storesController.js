@@ -14,6 +14,9 @@ router.get('/', (request, response) => {
         stores: user.stores
       })
     })
+    .catch((error) => {
+      console.log(error)
+    })
 })
 
 router.get('/new', (request, response) => {
@@ -36,6 +39,9 @@ router.post('/', (request, response) => {
     .then(() => {
       response.redirect(`/users/${userId}/stores`)
     })
+    .catch((error) => {
+      console.log(error)
+    })
 
 })
 
@@ -50,6 +56,9 @@ router.get('/:storeId/delete', (request, response) => {
     })
     .then(() => {
       response.redirect(`/users/${userId}/stores/`)
+    })
+    .catch((error) => {
+      console.log(error)
     })
 })
 
