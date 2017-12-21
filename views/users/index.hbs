@@ -1,0 +1,13 @@
+<div>
+    <h1>Which user are you?</h1>
+    {{#each users}}
+        <div>
+            <span>
+                <img src="{{this.photoUrl}}" alt="{{this.username}}'s profile image">
+            </span>
+            <span>
+                <a href="">{{this.firstName}} {{this.lastName}}</a>
+            </span>
+        </div>
+    {{/each}}
+</div>

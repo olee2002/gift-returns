@@ -4,7 +4,10 @@ const mongoose = require('mongoose')
 // Creating new Express app
 const app = express()
 
+app.set('view engine', 'hbs')
+
 // Mongo connection set-up
+mongoose.Promise = global.Promise
 mongoose.connect('mongodb://localhost/gift-returns', {
   useMongoClient: true
 })
