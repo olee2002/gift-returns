@@ -11,8 +11,8 @@ router.get('/', (request, response) => {
     })
 })
 
-router.get('/:id', (request, response) => {
-  const userId = request.params.id
+router.get('/:userId', (request, response) => {
+  const userId = request.params.userId
   User.findById(userId)
     .then((user) => {
       response.render('users/show', {

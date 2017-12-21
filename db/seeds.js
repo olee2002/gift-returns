@@ -1,4 +1,5 @@
 const User = require('./models/User')
+const Store = require('./models/Store')
 const mongoose = require('mongoose')
 
 // connect to database
@@ -29,14 +30,44 @@ User.remove({})
       photoUrl: 'https://enterprisectr.org/wp-content/uploads/2014/09/bobloblaw.jpg'
     })
   })
+  .then((bobLoblaw) => {
+    const target = new Store({
+      name: 'Target',
+      address: 'over there'
+    })
+
+    const sharperImage = new Store({
+      name: 'Sharper Image',
+      address: 'the mall'
+    })
+
+    bobLoblaw.stores.push(target, sharperImage)
+
+    return bobLoblaw.save()
+  })
   .then(() => {
     return User.create({
-      username: 'gob',
+      username: 'GOB',
       email: 'ceo@bluthcompany.com',
       firstName: 'George',
       lastName: 'Bluth',
       photoUrl: 'http://78.media.tumblr.com/tumblr_l97od9Zc1M1qz59z1o1_400.jpg'
     })
+  })
+  .then((gob) => {
+    const magicStore = new Store({
+      name: 'The Magic Store',
+      address: 'over there'
+    })
+
+    const petSmart = new Store({
+      name: 'PetSmart',
+      address: '123 Sesame St'
+    })
+
+    gob.stores.push(magicStore, petSmart)
+
+    return gob.save()
   })
   .catch((error) => {
     console.log('!!!!! ERROR SAVING SEEDED DATA !!!!!')

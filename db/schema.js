@@ -3,6 +3,21 @@ const Schema = mongoose.Schema
 
 mongoose.Promise = global.Promise
 
+const StoreSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: [true, 'Store name is required!']
+    },
+    address: {
+      type: String
+    }
+  },
+  {
+    timestamps: {}
+  }
+)
+
 const UserSchema = new Schema(
   {
     username: {
@@ -20,7 +35,8 @@ const UserSchema = new Schema(
       type: String,
       required: [true, 'Last name is required!']
     },
-    photoUrl: String
+    photoUrl: String,
+    stores: [StoreSchema]
   },
   {
     timestamps: {}
@@ -28,5 +44,6 @@ const UserSchema = new Schema(
 )
 
 module.exports = {
-  UserSchema
+  UserSchema,
+  StoreSchema
 }
