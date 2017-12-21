@@ -29,8 +29,7 @@ router.post('/', (request, response) => {
     store.giftsToReturn.push(newGift)
 
     return user.save()
-  })
-  .then(() => {
+  }).then(() => {
     response.redirect(`/users/${userId}/stores/${storeId}`)
   })
 })
@@ -49,6 +48,24 @@ router.get('/:giftId', (request, response) => {
       store,
       gift
     })
+  }).catch((error) => {
+    console.log(error)
+  })
+})
+
+router.get('/:giftId/delete', (request, response) => {
+  const userId = request.params.userId
+  const storeId = request.params.storeId
+  const giftId = request.params.giftId
+
+  User.findById(userId).then((user) => {
+    const store = user.stores.id(storeId)
+    store.giftsToReturn.id(giftId).remove()
+
+    return user.save()
+  })
+  .then(() => {
+    response.redirect(`/users/${userId}/stores/${storeId}`)
   })
   .catch((error) => {
     console.log(error)
