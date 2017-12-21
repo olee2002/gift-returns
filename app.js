@@ -36,6 +36,9 @@ app.use('/users', userController)
 const storesController = require('./controllers/storesController')
 app.use('/users/:userId/stores', storesController)
 
+const giftsController = require('./controllers/giftsController')
+app.use('/users/:userId/stores/:storeId/gifts', giftsController )
+
 // Starting server
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
