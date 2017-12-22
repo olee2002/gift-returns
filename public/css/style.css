@@ -114,6 +114,7 @@ h2  {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 40px;
+    width: 100%;
     max-width: 900px;
 }
 

@@ -44,6 +44,11 @@ app.use('/users/:userId/stores', storesController)
 const giftsController = require('./controllers/giftsController')
 app.use('/users/:userId/stores/:storeId/gifts', giftsController )
 
+// Automatically redirect to the Users page on load
+app.get('/', (request, response) => {
+  response.redirect('/users')
+})
+
 // Starting server
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
