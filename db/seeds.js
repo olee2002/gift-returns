@@ -42,7 +42,19 @@ User.remove({}).then(() => {
     price: 25.41,
     cameFrom: 'Lucille'
   })
-  target.giftsToReturn.push(toaster)
+  const mug = new Gift({
+    title: 'Coffee Mug',
+    description: 'Too many cats on it',
+    price: 4.45,
+    cameFrom: 'Lucille'
+  })
+  const broom = new Gift({
+    title: 'Broom',
+    description: 'Seriously, why?',
+    price: 12.41,
+    cameFrom: 'Oscar'
+  })
+  target.giftsToReturn.push(toaster, mug, broom)
 
   const sharperImage = new Store({
     name: 'Sharper Image',
@@ -52,9 +64,15 @@ User.remove({}).then(() => {
     title: 'Massage Chair',
     description: 'already have too many',
     price: 1521.67,
+    cameFrom: 'Donny'
+  })
+  const headMassager = new Gift({
+    title: 'Head Massager',
+    description: 'creepy',
+    price: 8.27,
     cameFrom: 'Oscar'
   })
-  sharperImage.giftsToReturn.push(massageChair)
+  sharperImage.giftsToReturn.push(massageChair, headMassager)
 
   bobLoblaw.stores.push(target, sharperImage)
 
@@ -72,6 +90,25 @@ User.remove({}).then(() => {
     name: 'The Magic Store',
     address: 'over there'
   })
+  const aztecTomb = new Gift({
+    title: 'Aztec Tomb',
+    description: 'already have one',
+    price: 10034.20,
+    cameFrom: 'Dad'
+  })
+  const cape = new Gift({
+    title: 'Cape',
+    description: 'too small',
+    price: 44.45,
+    cameFrom: 'Buster'
+  })
+  const lighterFluid = new Gift({
+    title: 'Lighter Fluid',
+    description: 'already have some',
+    price: 12.41,
+    cameFrom: 'Lindsey'
+  })
+  magicStore.giftsToReturn.push(aztecTomb, cape, lighterFluid)
 
   const petSmart = new Store({
     name: 'PetSmart',
@@ -81,6 +118,42 @@ User.remove({}).then(() => {
   gob.stores.push(magicStore, petSmart)
 
   return gob.save()
+}).then(() => {
+  return User.create({
+    username: 'Buster',
+    email: 'buster@bluthcompany.com',
+    firstName: 'Buster',
+    lastName: 'Bluth',
+    photoUrl: 'https://pbs.twimg.com/profile_images/1648107258/458329-buster_sheep_400x400.jpg'
+  })
+}).then((buster) => {
+  const archaeologyStore = new Store({
+    name: 'Archaeology Store',
+    address: 'down the street'
+  })
+  const aztecTomb = new Gift({
+    title: 'Fossils',
+    description: 'spooky',
+    price: 2034.20,
+    cameFrom: 'Oscar'
+  })
+  const cape = new Gift({
+    title: 'Pick',
+    description: 'too sharp',
+    price: 44.45,
+    cameFrom: 'Buster'
+  })
+  const lighterFluid = new Gift({
+    title: 'Book',
+    description: 'already have it',
+    price: 12.41,
+    cameFrom: 'Tobias'
+  })
+  archaeologyStore.giftsToReturn.push(aztecTomb, cape, lighterFluid)
+
+  buster.stores.push(archaeologyStore)
+
+  return buster.save()
 }).catch((error) => {
   console.log('!!!!! ERROR SAVING SEEDED DATA !!!!!')
   console.log(error)
