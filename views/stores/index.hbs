@@ -1,11 +1,9 @@
 <div>
-    <div>
-        <a href="/users">Home</a>
+    <div class="stepper">
+        <a href="/users">Home</a> / <a href="/users/{{userId}}">Profile</a> / Stores
     </div>
-    <div>
-        <a href="/users/{{userId}}">Back to User Profile</a>
-    </div>
-    <div>
+
+    <div class="button primary">
         <a href="/users/{{userId}}/stores/new">Add a new store</a>
     </div>
     <h1>{{userFullName}}'s Stores to Visit:</h1>

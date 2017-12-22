@@ -1,7 +1,8 @@
 /* Global */
 
 * {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto Mono', sans-serif;
+    font-weight: 300;
 }
 
 body {
@@ -16,10 +17,61 @@ body {
     width: 100%;
 }
 
+h1 {
+  font-family: 'Rubik';
+  font-weight: 700;
+}
+
 h2  {
+    
     margin: 0px;
     margin-bottom: 30px;
 }
+
+/* Stepper */
+.stepper{
+  margin-bottom: 20px;
+}
+
+/* Button */
+.button {
+  border: 1px solid black;
+  max-width: 250px;
+  min-width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  transition: all .25s ease;
+}
+
+.button.primary:hover{
+  background: #5BC0EB;
+}
+
+.button.warning:hover{
+  background: #E55934;
+}
+
+.button.primary {
+  background: #9BC53D;
+}
+
+.button.primary a {
+  color: white;
+}
+
+.button.warning {
+  color: white;
+  background: #FA7921;
+}
+
+.button a{
+  /* color: #5BC0EB; */
+  font-weight: 500;
+  text-decoration: none;
+}
+
 
 /* Links / Buttons (specifically anchor tag links right now) */
 .link-button {
@@ -78,6 +130,46 @@ h2  {
 
 .user-image {
     padding-bottom: 10px;
+}
+
+/* Users SHOW page styles */
+
+.user-container {
+  display: flex;
+  max-width: 750px;
+}
+
+.user-container img {
+  height: 256px;
+  width: 256px;
+}
+
+@media screen and (max-width: 650px){
+  .user-container {
+    flex-direction: column;
+  }
+}
+
+.user-info {
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.button-container {
+  display: flex; 
+  justify-content: space-between;
+}
+
+.button-container .button{
+  margin: 0 30px 0 0;
+}
+
+.user-info .visit-store a{
+  color: white;
+  font-size: 2rem;
+  text-shadow: 1px 1px 15px black;
 }
 
 /* Page header styles*/

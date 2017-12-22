@@ -1,10 +1,8 @@
 <div>
-    <div>
-        <a href="/users">Home</a>
+    <div class="stepper">
+        <a href="/users">Home</a> / <a href="/users/{{userId}}">Profile</a> / <a href="/users/{{userId}}/stores">Stores</a> / <a href="/users/{{userId}}/stores/{{store._id}}">{{store.name}}</a> / Gifts
     </div>
-    <div>
-        <a href="/users/{{userId}}/stores/{{store._id}}">Back to {{store.name}}</a>
-    </div>
+
     <h1>{{gift.title}}</h1>
     <div>Description: {{gift.description}}</div>
     <div>Price: ${{gift.price}}</div>

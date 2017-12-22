@@ -1,6 +1,6 @@
 <div>
-    <div>
-        <a href="/users/{{userId}}/stores/{{store._id}}">Cancel</a>
+    <div class="stepper">
+        <a href="/users">Home</a> / <a href="/users/{{userId}}">Profile</a> / <a href="/users/{{userId}}/stores">Stores</a> / <a href="/users/{{userId}}/stores/{{store._id}}">{{store.name}}</a> / New Gift
     </div>
     <form action="/users/{{userId}}/stores/{{store._id}}/gifts" method="POST">
         <h1>New Gift</h1>

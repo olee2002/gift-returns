@@ -1,24 +1,31 @@
 <div>
-    <div>
-        <a href="/users">Home</a>
+  <div class="stepper">
+        <a href="/users">Home</a> / Profile
     </div>
+  <div>
+    <a href="/users">Home</a>
+  </div>
 
-    <h1>{{user.firstName}} {{user.lastName}}</h1>
+  <h1>{{user.firstName}} {{user.lastName}}</h1>
+  <div class="user-container">
     <div>
-        <img src="{{user.photoUrl}}" alt="{{user.username}}'s profile photo">
+      <img src="{{user.photoUrl}}" alt="{{user.username}}'s profile photo">
     </div>
-    <div>
-        <div>
-            <a href="/users/{{user._id}}/edit">Update User Profile</a>
+    <div class="user-info">
+      <div class="button-container">
+        <div class="button primary">
+          <a href="/users/{{user._id}}/edit">Update INFO</a>
         </div>
-        <div>
-            <a href="/users/{{user._id}}/delete">Delete User Profile</a>
+        <div class="button warning">
+          <a href="/users/{{user._id}}/delete">Delete ME</a>
         </div>
-
-        <div>Username: {{user.username}}</div>
-        <div>Email: {{user.email}}</div>
-    </div>
-    <div>
+      </div>
+      <div>Username: <strong>{{user.username}}</strong></div>
+      <div>Email: <strong>{{user.email}}</strong></div>
+      <div class="visit-store">
         <a href="/users/{{user._id}}/stores">Stores To Visit</a>
+      </div>
     </div>
+  </div>
+
 </div>
