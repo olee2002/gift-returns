@@ -15,8 +15,9 @@ create a list of stores that they need to visit, and track which gifts they need
 database will include at least three types of Models, and we should make it look nice, too.
 
 #### A few things to remember to get you started:
-- Always start with a plan! We have created a [Trello Board](https://trello.com/b/xO8XsoU7/gift-return-sample-app) for you. 
-Be sure to **COPY** this Trello board before you update any of it.
+- Always start with a plan! We have created a partially-complete [Trello Board](https://trello.com/b/xO8XsoU7/gift-return-sample-app) for you. 
+There are a few **features** listed in the Icebox for which you should write out user stories before coding.
+**Be sure to COPY this Trello board to your own account before you update any of it.**
 - Be sure to add Wireframes to help you visualize the pages as you build them.
 - Draw out a rough ERD to help you visualize your data before you start building the database
 - As you add new data to the app, start by building your ERD models into your Schema, and then create
