@@ -6,10 +6,10 @@
     {{#each users}}
     <a href="/users/{{this._id}}" class="link user-card">
       <div class="user-image">
-        {{#if user.photoUrl}}
-          <img src="{{user.photoUrl}}" alt="{{user.username}}'s profile photo"> 
+        {{#if this.photoUrl}}
+          <img src="{{this.photoUrl}}" alt="{{this.username}}'s profile photo"> 
         {{else}}
-          <img src="https://picsum.photos/200/300" alt="{{user.username}}'s profile photo"> 
+          <img src="https://picsum.photos/200/300" alt="{{this.username}}'s profile photo"> 
         {{/if}}
       </div>
       <div class="profile-name">
