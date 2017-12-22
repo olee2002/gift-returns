@@ -20,7 +20,7 @@ app.use(methodOverride('_method'))
 
 // Mongo connection set-up
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb://localhost/gift-returns', {
+mongoose.connect(process.env.MONGODB_URI, {
   useMongoClient: true
 })
 

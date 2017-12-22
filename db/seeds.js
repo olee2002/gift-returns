@@ -3,8 +3,10 @@ const Store = require('./models/Store')
 const Gift = require('./models/Gift')
 const mongoose = require('mongoose')
 
+require('dotenv').config()
+
 // connect to database
-mongoose.connect('mongodb://localhost/gift-returns', {
+mongoose.connect(process.env.MONGODB_URI, {
   useMongoClient: true
 })
 
