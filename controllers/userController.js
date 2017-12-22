@@ -7,7 +7,7 @@ router.get('/', (request, response) => {
     .then((users) => {
       response.render('users/index', {
         users,
-        pageTitle: 'Users'
+        pageTitle: 'Home'
       })
     })
     .catch((error) => {
@@ -39,7 +39,8 @@ router.get('/:userId', (request, response) => {
   User.findById(userId)
     .then((user) => {
       response.render('users/show', {
-        user
+        user,
+        pageTitle: user.username
       })
     })
     .catch((error) => {
@@ -53,7 +54,8 @@ router.get('/:userId/edit', (request, response) => {
   User.findById(userId)
     .then((user) => {
       response.render('users/edit', {
-        user
+        user,
+        pageTitle: 'Profile_Update'
       })
     })
     .catch((error) => {

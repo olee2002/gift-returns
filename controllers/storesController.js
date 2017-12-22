@@ -11,7 +11,8 @@ router.get('/', (request, response) => {
       response.render('stores/index', {
         userFullName: `${user.firstName} ${user.lastName}`,
         userId: user._id,
-        stores: user.stores
+        stores: user.stores,
+        pageTitle: 'Stores'
       })
     })
     .catch((error) => {
@@ -23,7 +24,8 @@ router.get('/new', (request, response) => {
   const userId = request.params.userId
 
   response.render('stores/new', {
-    userId
+    userId,
+    pageTitle: 'New_Store'
   })
 })
 
@@ -36,7 +38,8 @@ router.get('/:storeId', (request, response) => {
       const store = user.stores.id(storeId)
       response.render('stores/show', {
         userId,
-        store
+        store,
+        pageTitle: 'Store'
       })
     })
     .catch((error) => {
