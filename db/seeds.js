@@ -63,7 +63,7 @@ User.remove({}).then(() => {
     email: 'ceo@bluthcompany.com',
     firstName: 'George',
     lastName: 'Bluth',
-    photoUrl: 'http://78.media.tumblr.com/tumblr_l97od9Zc1M1qz59z1o1_400.jpg'
+    photoUrl: 'https://pbs.twimg.com/profile_images/378800000134134212/81a38a74f2f122459e88a5f95987a139.jpeg'
   })
 }).then((gob) => {
   const magicStore = new Store({

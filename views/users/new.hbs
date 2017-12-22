@@ -1,36 +1,39 @@
-<div>
+<div class="card">
+
+    <h2>User Info</h2>
     <div>
-        <a href="/users">Cancel</a>
+        <form action="/users" method="POST">
+            <div class="form-input">
+                <label for="username">Username</label>
+                <input type="text" name="username" required/>
+            </div>
+
+            <div class="form-input">
+                <label for="email">Email</label>
+                <input type="text" name="email"/>
+            </div>
+
+            <div class="form-input">
+                <label for="firstName">First Name</label>
+                <input type="text" name="firstName" required/>
+            </div>
+
+            <div class="form-input">
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName" required/>
+            </div>
+
+            <div class="form-input">
+                <label for="photoUrl">Photo Url</label>
+                <input type="text" name="photoUrl"/>
+            </div>
+
+            <div>
+                <a href="/users" class="link">
+                    <div class="link-button link-button-danger">Cancel</div>
+                </a>
+                <input type="submit" value="Create User">
+            </div>
+        </form>
     </div>
-    <h1>New User</h1>
-    <form action="/users" method="POST">
-        <div>
-            <label for="username">Username:</label>
-            <input type="text" name="username" required/>
-        </div>
-
-        <div>
-            <label for="email">Email:</label>
-            <input type="text" name="email"/>
-        </div>
-
-        <div>
-            <label for="firstName">First Name:</label>
-            <input type="text" name="firstName" required/>
-        </div>
-
-        <div>
-            <label for="lastName">Last Name:</label>
-            <input type="text" name="lastName" required/>
-        </div>
-
-        <div>
-            <label for="photoUrl">Photo Url:</label>
-            <input type="text" name="photoUrl"/>
-        </div>
-
-        <div>
-            <input type="submit" value="Create User">
-        </div>
-    </form>
 </div>

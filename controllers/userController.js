@@ -6,7 +6,8 @@ router.get('/', (request, response) => {
   User.find({})
     .then((users) => {
       response.render('users/index', {
-        users
+        users,
+        pageTitle: 'Users'
       })
     })
     .catch((error) => {
@@ -15,11 +16,16 @@ router.get('/', (request, response) => {
 })
 
 router.get('/new', (request, response) => {
-  response.render('users/new')
+  response.render('users/new', { pageTitle: 'New User' })
 })
 
 router.post('/', (request, response) => {
-  User.create(request.body)
+  const newUser = request.body
+  if(!newUser.photoUrl) {
+    newUser.photoUrl = 'http://www.fillmurray.com/g/300/300'
+  }
+
+  User.create(newUser)
     .then(() => {
       response.redirect('/users')
     })

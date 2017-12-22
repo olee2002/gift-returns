@@ -1,16 +1,24 @@
 <div>
-    <h1>Which user are you?</h1>
-    <div>
-        <a href="/users/new">Add a New User</a>
+    <div class="user-cards">
+        {{#each users}}
+            <div class="user-card">
+                <a href="/users/{{this._id}}" class="link">
+                    <div class="user-image">
+                        <img src="{{this.photoUrl}}" alt="{{this.username}}'s profile image">
+                    </div>
+                    <div>
+                        {{this.firstName}} {{this.lastName}}
+                    </div>
+                </a>
+            </div>
+        {{/each}}
     </div>
-    {{#each users}}
-        <div>
-            <span>
-                <img src="{{this.photoUrl}}" alt="{{this.username}}'s profile image">
-            </span>
-            <span>
-                <a href="/users/{{this._id}}">{{this.firstName}} {{this.lastName}}</a>
-            </span>
-        </div>
-    {{/each}}
+
+    <div class="nav-buttons">
+        <a href="/users/new" class="link">
+            <div class="link-button">New User</div>
+        </a>
+    </div>
+
+
 </div>
