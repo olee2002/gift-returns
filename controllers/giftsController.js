@@ -13,7 +13,8 @@ router.get('/new', (request, response) => {
 
       response.render('gifts/new', {
         userId,
-        store
+        store,
+        pageTitle: 'New_Gift'
       })
     })
 })
@@ -49,7 +50,8 @@ router.get('/:giftId', (request, response) => {
       response.render('gifts/show', {
         userId,
         store,
-        gift
+        gift,
+        pageTitle: 'Gifts'
       })
     })
     .catch((error) => {
