@@ -1,19 +1,21 @@
 <div class="stepper">
-  Home
+    Home
 </div>
 <div>
     <div class="user-cards">
         {{#each users}}
-            <div class="user-card">
-                <a href="/users/{{this._id}}" class="link">
-                    <div class="user-image">
-                        <img src="{{this.photoUrl}}" alt="{{this.username}}'s profile image">
-                    </div>
-                    <div>
-                        {{this.firstName}} {{this.lastName}}
-                    </div>
-                </a>
-            </div>
+        <div class="user-card">
+            <a href="/users/{{this._id}}" class="link">
+                <div class="user-image">
+                    {{#if user.photoUrl}}
+                    <img src="{{user.photoUrl}}" alt="{{user.username}}'s profile photo"> {{else}}
+                    <img src="https://picsum.photos/200/300" alt="{{user.username}}'s profile photo"> {{/if}}
+                </div>
+                <div>
+                    {{this.firstName}} {{this.lastName}}
+                </div>
+            </a>
+        </div>
         {{/each}}
     </div>
 
