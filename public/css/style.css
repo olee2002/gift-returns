@@ -59,7 +59,7 @@ h2  {
   background: #9BC53D;
 }
 
-.button.primary a {
+.button.primary, .button.primary a {
   color: white;
 }
 
@@ -98,35 +98,52 @@ h2  {
 
 /* Users INDEX page styles */
 
+.profile-card-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-name {
+  font-family: 'Rubik';
+  font-weight: 500;
+  font-size: 1.35rem;
+}
+
 .user-cards {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     box-sizing: border-box;
-    padding: 40px;
+    padding: 40px 0;
 }
 
 .user-card {
     display: flex;
-    padding-top: 40px;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     box-sizing: border-box;
     margin: 0px 30px;
-    margin-bottom: 40px;
     background-color: white;
-    width: 200px;
+    width: 250px;
     min-width: 200px;
-    height: 220px;
+    height: 320px;
     font-weight: bold;
     color: black;
     text-align: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: all .25s ease;
+}
+
+.user-card:hover{
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .user-card img {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    border-radius: 49%;
     background: white;
 }
 
@@ -144,12 +161,6 @@ h2  {
 .user-container img {
   height: 256px;
   width: 256px;
-}
-
-@media screen and (max-width: 650px){
-  .user-container {
-    flex-direction: column;
-  }
 }
 
 .user-info {
@@ -227,8 +238,62 @@ h2  {
 
 .form-input {
     margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }
 
 .form-input input {
+    width: 85%;
     padding: 5px;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+.form-input label {
+  width: 100px;
+}
+
+
+.flex-end{
+  justify-content: flex-end;
+}
+
+/* Store Show */
+.store-header, .stores {
+  width: 65%;
+  min-width: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.store.card {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: baseline;
+  justify-content: center;
+  align-items: baseline;
+  width: 30%;
+  min-width: 125px;
+  background: white;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.store.card .cancel{
+  align-self: flex-end;
+  text-decoration: none;
+  font-size: 1.35rem;
+}
+
+@media screen and (max-width: 650px){
+  .user-container {
+    flex-direction: column;
+  }
+
+  .store-header {
+    flex-direction: column;
+  }
 }

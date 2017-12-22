@@ -1,25 +1,23 @@
 <div class="stepper">
   Home
 </div>
-<div>
-    <div class="user-cards">
-        {{#each users}}
-            <div class="user-card">
-                <a href="/users/{{this._id}}" class="link">
-                    <div class="user-image">
-                        <img src="{{this.photoUrl}}" alt="{{this.username}}'s profile image">
-                    </div>
-                    <div>
-                        {{this.firstName}} {{this.lastName}}
-                    </div>
-                </a>
-            </div>
-        {{/each}}
-    </div>
+<div class="profile-card-container">
+  <div class="user-cards">
+    {{#each users}}
+    <a href="/users/{{this._id}}" class="link user-card">
+      <div class="user-image">
+        <img src="{{this.photoUrl}}" alt="{{this.username}}'s profile image">
+      </div>
+      <div class="profile-name">
+        {{this.firstName}} {{this.lastName}}
+      </div>
+    </a>
+    {{/each}}
+  </div>
 
-    <div class="nav-buttons">
-        <a href="/users/new" class="link">
-            <div class="link-button">New User</div>
-        </a>
-    </div>
+  <div class="button primary">
+    <a href="/users/new">
+      New User
+    </a>
+  </div>
 </div>
