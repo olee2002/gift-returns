@@ -1,21 +1,20 @@
+<div class="stepper">
+  <a href="/users">Home</a> /
+  <a href="/users/{{userId}}">Profile</a> / Stores
+</div>
+
+<div class="button primary">
+  <a href="/users/{{userId}}/stores/new">Add a new store</a>
+</div>
+<h1>{{userFullName}}'s Stores to Visit:</h1>
 <div>
-    <div class="stepper">
-        <a href="/users">Home</a> / <a href="/users/{{userId}}">Profile</a> / Stores
-    </div>
+  {{#each stores}}
+  <div>
+    <a href="/users/{{../userId}}/stores/{{this._id}}">
+      <h3>{{this.name}}</h3>
+    </a>
 
-    <div class="button primary">
-        <a href="/users/{{userId}}/stores/new">Add a new store</a>
-    </div>
-    <h1>{{userFullName}}'s Stores to Visit:</h1>
-    <div>
-        {{#each stores}}
-            <div>
-                <a href="/users/{{../userId}}/stores/{{this._id}}">
-                    <h3>{{this.name}}</h3>
-                </a>
-
-                <a href="/users/{{../userId}}/stores/{{this._id}}/delete">X</a>
-            </div>
-        {{/each}}
-    </div>
+    <a href="/users/{{../userId}}/stores/{{this._id}}/delete">X</a>
+  </div>
+  {{/each}}
 </div>

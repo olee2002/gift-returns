@@ -1,26 +1,26 @@
+<div class="stepper">
+  <a href="/users">Home</a> /
+  <a href="/users/{{userId}}">Profile</a> /
+  <a href="/users/{{userId}}/stores">Stores</a> / {{store.name}}
+</div>
 <div>
-    <div class="stepper">
-        <a href="/users">Home</a> / <a href="/users/{{userId}}">Profile</a> / <a href="/users/{{userId}}/stores">Stores</a> / {{store.name}}
-    </div>
-    <div>
-        <a href="/users/{{userId}}/stores">Back to Stores</a>
-    </div>
-    <h1>{{store.name}}</h1>
-    <a href="/users/{{userId}}/stores/{{store._id}}/delete">Delete</a>
+  <a href="/users/{{userId}}/stores">Back to Stores</a>
+</div>
+<h1>{{store.name}}</h1>
+<a href="/users/{{userId}}/stores/{{store._id}}/delete">Delete</a>
 
-    <div>
-        Location: {{store.address}}
-    </div>
+<div>
+  Location: {{store.address}}
+</div>
 
-    <div>
-        <h3>Gifts To Return:</h3>
-        <a href="/users/{{userId}}/stores/{{store._id}}/gifts/new">Add a Gift</a>
-        {{#each store.giftsToReturn}}
-            <div>
-                <a href="/users/{{../userId}}/stores/{{../store._id}}/gifts/{{this._id}}">
-                    {{this.title}}
-                </a>
-            </div>
-        {{/each}}
-    </div>
+<div>
+  <h3>Gifts To Return:</h3>
+  <a href="/users/{{userId}}/stores/{{store._id}}/gifts/new">Add a Gift</a>
+  {{#each store.giftsToReturn}}
+  <div>
+    <a href="/users/{{../userId}}/stores/{{../store._id}}/gifts/{{this._id}}">
+      {{this.title}}
+    </a>
+  </div>
+  {{/each}}
 </div>

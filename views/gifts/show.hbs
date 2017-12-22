@@ -1,14 +1,15 @@
-<div>
-    <div class="stepper">
-        <a href="/users">Home</a> / <a href="/users/{{userId}}">Profile</a> / <a href="/users/{{userId}}/stores">Stores</a> / <a href="/users/{{userId}}/stores/{{store._id}}">{{store.name}}</a> / Gifts
-    </div>
+<div class="stepper">
+  <a href="/users">Home</a> /
+  <a href="/users/{{userId}}">Profile</a> /
+  <a href="/users/{{userId}}/stores">Stores</a> /
+  <a href="/users/{{userId}}/stores/{{store._id}}">{{store.name}}</a> / Gifts
+</div>
 
-    <h1>{{gift.title}}</h1>
-    <div>Description: {{gift.description}}</div>
-    <div>Price: ${{gift.price}}</div>
-    <div>Came From: {{gift.cameFrom}}</div>
-    
-    <div>
-        <a href="/users/{{userId}}/stores/{{store._id}}/gifts/{{gift._id}}/delete">Delete</a>
-    </div>
+<h1>{{gift.title}}</h1>
+<div>Description: {{gift.description}}</div>
+<div>Price: ${{gift.price}}</div>
+<div>Came From: {{gift.cameFrom}}</div>
+
+<div>
+  <a href="/users/{{userId}}/stores/{{store._id}}/gifts/{{gift._id}}/delete">Delete</a>
 </div>
