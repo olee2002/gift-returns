@@ -19,9 +19,7 @@ const GiftSchema = new Schema(
       type: String
     }
   },
-  {
-    timestamps: {}
-  }
+  {usePushEach: true}
 )
 
 const StoreSchema = new Schema(
@@ -35,9 +33,7 @@ const StoreSchema = new Schema(
     },
     giftsToReturn: [GiftSchema]
   },
-  {
-    timestamps: {}
-  }
+  {usePushEach: true}
 )
 
 const UserSchema = new Schema(
@@ -63,9 +59,7 @@ const UserSchema = new Schema(
     },
     stores: [StoreSchema]
   },
-  {
-    timestamps: {}
-  }
+  {usePushEach: true}
 )
 
 module.exports = {
